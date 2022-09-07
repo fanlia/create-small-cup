@@ -1,2 +1,2 @@
 # create-small-cup
-create small-cup skeleton
+create <a href="https://github.com/fanlia/small-cup">small-cup</a> skeleton
