@@ -1,0 +1,23 @@
+{
+  "name": "create-small-cup",
+  "version": "1.0.0",
+  "description": "create small-cup skeleton",
+  "main": "create-small-cup.js",
+  "bin": {
+    "create-small-cup": "create-small-cup.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanlia/create-small-cup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fanlia/create-small-cup/issues"
+  },
+  "homepage": "https://github.com/fanlia/create-small-cup#readme"
+}
