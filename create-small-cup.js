@@ -30,22 +30,34 @@ if (fs.existsSync(package_json_path)) {
     process.exit()
 }
 
-mkdirSync('src/html')
+mkdirSync('src/pages')
 
-writeFileSync('src/html/about.html', `
+writeFileSync('src/pages/about.js', `
+import nav from './nav.js'
+
+export default \`
+\${nav}
 <h1>about</h1>
+\`
 `)
 
-writeFileSync('src/html/home.html', `
+writeFileSync('src/pages/home.js', `
+import nav from './nav.js'
+
+export default \`
+\${nav}
 <h1>home</h1>
 <p>count is <button component='counter'></button></p>
+\`
 `)
 
-writeFileSync('src/html/nav.html', `
+writeFileSync('src/pages/nav.js', `
+export default \`
 <p>
     <a href='/' component='a'>home</a>
     <a href='/about' component='a'>about</a>
 </p>
+\`
 `)
 
 writeFileSync('.gitignore', `
@@ -96,29 +108,22 @@ export default {
 `)
 
 writeFileSync('src/routes.js', `
-import home from 'bundle-text:./html/home.html'
-import about from 'bundle-text:./html/about.html'
-import nav from 'bundle-text:./html/nav.html'
+import home from './pages/home.js'
+import about from './pages/about.js'
 
 export default [
     {
         name: 'home',
         path: '/',
         before: async (ctx) => {
-            ctx.$root.innerHTML = \`
-                \${nav}
-                \${home}
-            \`
+            ctx.$root.innerHTML = home
         },
     },
     {
         name: 'about',
         path: '/about',
         before: async (ctx) => {
-            ctx.$root.innerHTML = \`
-                \${nav}
-                \${about}
-            \`
+            ctx.$root.innerHTML = about
         },
     },
 ]
@@ -158,6 +163,6 @@ fs.writeFileSync(package_json_path, JSON.stringify(package, null, 2))
 console.log('please wait')
 
 execSync('npm i small-cup --registry=https://registry.npmmirror.com')
-execSync('npm i -D parcel @parcel/transformer-inline-string --registry=https://registry.npmmirror.com')
+execSync('npm i -D parcel --registry=https://registry.npmmirror.com')
 
 console.log(`\nyou can 'npm start' now`)
