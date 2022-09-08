@@ -54,8 +54,8 @@ export default \`
 writeFileSync('src/pages/nav.js', `
 export default \`
 <p>
-    <a href='/' component='a'>home</a>
-    <a href='/about' component='a'>about</a>
+    <a href='/' component='a' data-active-route-class='route-active'>home</a>
+    <a href='/about' component='a' data-active-route-class='route-active'>about</a>
 </p>
 \`
 `)
@@ -129,6 +129,12 @@ export default [
 ]
 `)
 
+writeFileSync('src/index.css', `
+.route-active {
+    color: red;
+}
+`)
+
 writeFileSync('src/index.js', `
 if (module.hot) {
     module.hot.accept()
@@ -139,6 +145,8 @@ import cup, { onpathname } from 'small-cup'
 import context from './context.js'
 import components from './components.js'
 import routes from './routes.js'
+
+import './index.css'
 
 const app = cup({
     context,
