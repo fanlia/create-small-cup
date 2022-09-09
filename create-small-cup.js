@@ -177,7 +177,7 @@ fs.writeFileSync(package_json_path, JSON.stringify(package, null, 2))
 
 console.log('please wait')
 
-execSync('npm i small-cup --registry=https://registry.npmmirror.com')
-execSync('npm i -D parcel --registry=https://registry.npmmirror.com')
+execSync('npm i small-cup')
+execSync('npm i -D parcel')
 
 console.log(`\nyou can 'npm start' now`)
