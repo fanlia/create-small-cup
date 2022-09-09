@@ -38,6 +38,7 @@ import nav from './nav.js'
 export default \`
 \${nav}
 <h1>about</h1>
+<p component='test'></p>
 \`
 `)
 
@@ -97,6 +98,12 @@ export default {
             ctx.count++
             render()
         }
+    },
+    test: (el) => {
+        h(el, {}, [
+            h('span', {}, 'go to '),
+            link({ href: '/' }, 'home'),
+        ])
     },
 }
 `)
