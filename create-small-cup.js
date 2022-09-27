@@ -63,6 +63,8 @@ export default \`
 
 writeFileSync('.gitignore', `
 node_modules/
+.parcel-cache/
+dist/
 `)
 
 writeFileSync('src/index.html', `
