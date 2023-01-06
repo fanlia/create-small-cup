@@ -149,7 +149,7 @@ if (module.hot) {
     module.hot.accept()
 }
 
-import cup, { onpathname } from 'small-cup'
+import { cup, onpathname } from 'small-cup'
 
 import context from './context.js'
 import components from './components.js'
